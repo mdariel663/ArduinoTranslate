@@ -1,4 +1,6 @@
 #include "LiquidCrystal_I2C.h"
+#include <string>
+#include <iostream>
 LCD *lcdCurrent = nullptr;
 
 void LiquidCrystal_I2C::showBanner() const{

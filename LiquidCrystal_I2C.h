@@ -1,6 +1,4 @@
-#include <string>
 #include <cstring>
-#include <iostream>
 struct LCD{
     int col;
     int row;
