@@ -1,9 +1,9 @@
-#ifndef UTILSARDUINO_H
-#define UTILSARDUINO_H
+#ifndef STDARDUINO_H
+#define STDARDUINO_H
 #include <iostream>
 #include <math.h>
-#include <vector>
 #include <cstring>
+#include <iosfwd>
 using std::cout;
 
 enum PINOUTS_ARDUINO{
@@ -29,6 +29,26 @@ enum PINOUTS_ARDUINO{
     //PWM D3, D5, D6, D9, D10 y D11 en Arduino Uno).
 
 };
+
+enum DebugLevel{
+    INFO,
+    WARN,
+    DEBUG
+};
+
+static DebugLevel LogLevel = DEBUG;
+
+class Debugger{
+    std::ostream *m_outFile = nullptr;
+    std::ostream *m_out = nullptr; // se usa puntero para cambiar la salida del logger
+    std::string selectLoggerLevel(DebugLevel logType);
+
+public:
+    template<typename T>
+    Debugger& operator << (const T& object);
+    ~Debugger();
+};
+
 namespace Arduino {
 
 enum PinMode {
@@ -83,6 +103,6 @@ public:
 };
 }
 using namespace Arduino;
-
-#endif // UTILSARDUINO_H
+static _serial_internal Serial;
+#endif // STDARDUINO_H
 

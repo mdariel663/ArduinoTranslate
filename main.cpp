@@ -1,7 +1,5 @@
 #ifndef ARDUINO
-#include "utilsarduino.h"
-_serial_internal Serial;
-
+#include "stdArduino.h"
 // modulos extra
 #include <DHT.h>
 #include "LiquidCrystal_I2C.h"
@@ -15,7 +13,6 @@ _serial_internal Serial;
 
 
 
-/* EXAMPLE
 DHT dht(DHTPIN, DHTTYPE);
 LiquidCrystal_I2C lcd(0x27, 16, 2);   // Set the LCD address to 0x27 for a 16 chars and 2line display
 // variables de temperatura y humedad
@@ -37,16 +34,17 @@ void tempHumDisplay() {
 }
 
 
-*/
 void setup(){
     // put your setup code here, to run once
     Serial.begin(9600);
     Serial.println("Inicializando...");
+
 }
 
 
 void loop() {
  // put your loop code here, to run every
+    //Serial.println("ExampleLoop");
 }
 
 
@@ -54,6 +52,6 @@ void loop() {
 #ifndef ARDUINO
 int main(){
     setup();
-    while (true) loop();
+    //while (true) loop();
 }
 #endif
