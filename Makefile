@@ -12,14 +12,14 @@ CXX          := g++
 
 # Cabecera y pie automáticos
 define ARDUINO_HEADER
-
+// Implementaciones de librerias de precompilacion para el fichero a traves de macros
 #ifndef ARDUINO
 #include "stdArduino.h"
 #endif
-
+// Implementacion de codigo .ino
 endef
 define ARDUINO_FOOTER
-
+// Funcion main con tracking y deteccion de patrones
 #ifndef ARDUINO
 int main(){
 	setup();
